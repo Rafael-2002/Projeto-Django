@@ -1,0 +1,324 @@
+
+
+{% extends 'layout.html' %}
+
+{% block main %}
+    <br><br><br><br>
+
+    <article data-anime ="left">
+
+        <h1>Sobre mim!</h1>
+        <p>Sou o Rafael Silva e nasci em 20/10/2002.<br>
+           Escolhi este curso porque sempre fui interessado na tecnologia e gostava de aprender mais sobre a mesma, neste curso o que tenho gostado mais é dos desafios da programação.<br>
+           Considero-me uma pessoa organizada que gosta de trabalhar em equipa, responsável e paciente.<br>
+           Quando acabar o curso gostava de tentar arranjar um bom emprego.<br>
+           Sou escoteiro ha 6 anos onde aprendi diversas qualidades, gosto de passar tempo com os amigos e de jogar computador.</p>
+    
+      </article>
+    
+      <h1 class = "titulo1" id = "licenciatura">Cadeiras</h1>
+      <div class="projetos">
+      <table>
+          <tr>
+              <th>Cadeiras</th>
+              <th>ECTS</th>
+              <th>Ranking(1-5)</th>
+              <th>Editar</th>
+          </tr>
+        {% for cadeira in cadeira %}
+        <tr>
+            <td>{{ cadeira.nome }}</td>
+            <td>{{ cadeira.ECTS }}</td>
+            <td>{{ cadeira.Ranking }}</td>
+            <td> <a href="{% url 'portfolio:editarCadeira' cadeira_id=cadeira.id %}" style=" color : white" >Editar</a> </td>
+        </tr>
+        {% endfor %}
+      </table>
+            <br>
+           <a href="{% url 'portfolio:cadeiraNova' %}" style=" color : white; text-align:center">+ Nova Cadeira</a>
+
+    </div>
+
+    <div class="ensino-flex" id="educacao">
+ 
+
+      <div class = "ensino">
+        <h1>Curso superior</h1>
+        <p>Estou no 2ºano do curso Engenharia Informática na<br> Universidade Lusófona em Lisboa.</p>
+        {% load static %}
+        <img src="{% static 'images/lusofona.png' %}">
+        <br><br><br><br>
+    </div>
+    <h1 class="titulo2">Ensino</h1>
+    <div class="secundario">
+        <h1>Ensino Secundário</h1>
+        <p>Durante o meu ensino secundário tirei um curso profissional de<br> programação na Escola Secundária Gago Coutinho em Alverca</p>
+        {% load static %}
+        <img src="{% static 'images/esgc.png' %}" width = 30%>
+      </div>
+    </div>
+
+
+
+    <div class="box-flex" id="aptidoes">
+      <div class="box2">
+        <h1>Aptidões organizativas e linguísticas</h1>
+        <p>Sempre gostei de trabalhar em equipa e é uma coisa à qual já estou habituado devido aos escoteiros</p>
+        <p>Sou uma pessoa que sabe como gerir o seu tempo de forma eficiente</p>
+        <p>Tenho uma boa capacidade de liderança e sou bom na delegação de tarefas. Já tenho alguma experiência, pois sou escoteiro hà vários anos onde já fui lider de uma equipa</p>
+        <p>Inglês - Independente </p>
+        <p>Espanhol - Independente</p>
+      </div>
+
+      <div class="box3">
+        <h1>Aptidões sociais</h1>
+        <p>Considero que tenho uma boa capacidade social</p>
+        <p>Na informática é muito importante conseguirmos nos adaptar a várias situações como, por exemplo, aprender uma nova linguagem, como já tenho conhecimento de algumas linguagens com um pouco de esfoço consigo aprender novas linguagens</p>
+        <p>Sou uma pessoa que não gosta de conflitos e caso aconteceu estou sempre pronto para os resolver da melhor maneira</p>
+        <p>Tenho uma boa capacidade de cooperação em equipa</p>
+        <p>Sou um bom ouvinte</p>
+      </div>
+
+      <div class = "box1">
+        <h1>Aptidões em Linguagens de Programação</h1>
+        <p>Html - ⭐⭐⭐ - Utilizado no ensino secundário e na cadeira de Programação Web</p>
+        <p>PHP - ⭐⭐⭐⭐ - Utilizado no ensino secundário</p>
+        <p>SQL - ⭐⭐⭐⭐ - Utilizado no ensino secundário e na cadeira de Base de Dados</p>
+        <p>Java - ⭐⭐⭐ - Utilizado nas cadeiras de programação</p>
+        <p>C - ⭐⭐⭐ - Utilizado na cadeira de Linguagens de Programação e Sistemas Operativos</p>
+        <p>JavaScript - ⭐ - Utilizado na cadeira de Programação Web</p>
+      </div>
+    </div>
+    
+
+      <div class="esco" id="hobbies">
+        <h1 class="titulo1">Hobbies</h1>
+        <h2>Escoteiros</h2>
+        <p>Já sou escoteiro ha 6 anos logo é um grande interesse meu.<br>
+          Aprendi diversas coisas sobre vários temas que me vão ser úteis <br> durante toda a vida.
+          <a href = "https://escoteiros.pt">Website Escoteiros</a></p>
+          <br><br>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/w-EZ4CAf6TE" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+
+
+      <div class="projetos" id="projetos">
+        <h1 class="titulo1">Alguns projetos realizados por mim</h1>
+
+        <table>
+          <tr>
+              <th>Projeto</th>
+              <th>Descrição</th>
+              <th>Cadeira</th>
+              <th>Tecnologias usadas</th>
+              <th>Utilizador</th>
+              <th>Editar</th>
+          </tr>
+
+        {% for projetos in projetos %}
+        <tr>
+            <td>{{ projetos.nome }}</td>
+            <td>{{ projetos.descricao }}</td>
+            <td>{{ projetos.disciplina }}</td>
+            <td>{{ projetos.tecnologias }}</td>
+            <td>{{ projetos.user }}</td>
+            <td><a href=" {% url 'portfolio:editarProjeto' projetos_id=projetos.id %}"  style=" color : white">Editar</a> </td>
+        </tr>
+        {% endfor %}
+      </table>
+          <br>
+        <a href="{% url 'portfolio:projetoNovo' %}" style=" color : white; text-align:center">+ Novo Projeto</a>
+
+      </div>
+
+
+    <div class="web">
+        <h1 class="titulo1">CSS</h1>
+    <div class="parallax">
+
+      <table class="tab1">
+        <tr>
+          <th>Nome</th>
+          <th>Acrónimo</th>
+          <th>Ano de criação</th>
+          <th>Criador</th>
+          <th>Logotipo</th>
+          <th>Site</th>
+          <th>Descrição</th>
+        </tr>
+        <tr>
+          <td>Cascading Style Sheets</td>
+          <td>CSS</td>
+          <td>1996</td>
+          <td>World Wide Web Consortium</td>
+          <td>
+            {% load static %}
+            <img width="40%" height="40%" src="{% static 'images/css.png' %}"></td>
+          <td><a href="https://www.w3.org/Style/CSS/Overview.en.html">Website </a> </td>
+          <td>É uma linguagem de estilo usada para definir<br> a apresentação visual de um documento HTML</td>
+        </tr>
+    </table>
+    </div>
+
+    <br><br>
+
+    <h1 class="titulo1">HTML</h1>
+    <div class ="parallax">
+
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Acrónimo</th>
+          <th>Ano de criação</th>
+          <th>Criador</th>
+          <th>Logotipo</th>
+          <th>Site</th>
+          <th>Descrição</th>
+        </tr>
+        <tr>
+          <td>HyperText Markup Language</td>
+          <td>HTML</td>
+          <td>1990</td>
+          <td>Tim Berners-Lee </td>
+          <td>{% load static %}
+          <img width="40%" height="40%" src="{% static 'images/html.png' %}"></td>
+          <td> <a href="https://www.w3.org/html/">Website</a> </td>
+          <td>É uma linguagem utilizada para criar páginas web.<br> É possivel definir a estrutura e o conteúdo de uma página web</td>
+        </tr>
+    </table>
+    </div>
+
+    <br><br>
+
+    <h1 class="titulo1">JavaScript</h1>
+    <div class="parallax">
+
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Acrónimo</th>
+          <th>Ano de criação</th>
+          <th>Criador</th>
+          <th>Logotipo</th>
+          <th>Site</th>
+          <th>Descrição</th>
+        </tr>
+        <tr>
+          <td>JavaScript</td>
+          <td>JS</td>
+          <td>1995</td>
+          <td>Brendan Eich</td>
+          <td>{% load static %}
+            <img width="20%" height="20%" src="{% static 'images/javascript.png' %}"></td>
+          <td><a href="https://pt.wikipedia.org/wiki/JavaScript">Website</a> </td>
+          <td>É uma linguagem de programação de alto nível orientada a objetos <br>utilizada para criar interatividade em páginas web</td>
+        </tr>
+    </table>
+
+    <br><br><br><br>
+
+    </div>
+      </div>
+
+      <br><br><br><br><br><br><br>
+
+    <div class="tecnologia">
+      <div class="retangulo1">
+        <div class="conteudo1">
+          <p>HTML<br><br>Utilizado no <br>Website</p>
+        </div>
+        <div class="conteudo-novo1">
+          <p>HyperText Markup Language<br><br>
+          Criado em 1990 por Tim Berners-Lee<br><br>
+          Foi utilizado em todo o website para a criacao das páginas e definir a estrutura de todo o website<br><br>
+          {% load static %}
+          <img width="40%" height="40%" src="{% static 'images/html.png' %}"></p>
+        </div>
+      </div>
+
+
+      <div class="retangulo2">
+        <div class="conteudo2">
+          <p>CSS<br><br>Utilizado no <br>Website</p>
+        </div>
+        <div class="conteudo-novo2">
+          <p>Cascading Style Sheets<br><br>
+          Criado em 1996 por World Wide Web Consortium<br><br>
+          Foi utilizado em toda a pagina na apresentação visual<br><br>
+          {% load static %}
+          <img width="30%" height="30%" src="{% static 'images/css.png' %}"></p>
+        </div>
+      </div>
+
+      <div class="retangulo3">
+        <div class="conteudo3">
+          <p>JavaScript<br><br>Utilizado no <br>Website</p>
+        </div>
+        <div class="conteudo-novo3">
+          <p>JavaScript<br><br>
+          Criado em 1995 por Brendan Eich<br><br>
+          Utilizado na maioria do website para criar interatividade com objectos <br><br>
+          {% load static %}
+          <img width="30%" height="30%" src="{% static 'images/javascript.png' %}"></p>
+        </div>
+      </div>
+      
+    </div>
+
+
+<br><br><br><br>
+    
+
+
+
+<script>
+  const retangulo1 = document.querySelector('.retangulo1');
+  const conteudo1 = document.querySelector('.conteudo1');
+  const conteudoNovo1 = document.querySelector('.conteudo-novo1');
+  
+  retangulo1.addEventListener('mouseover', () => {
+    conteudo1.style.transform = 'rotateY(180deg)';
+    conteudoNovo1.style.transform = 'rotateY(0deg)';
+  });
+  
+  retangulo1.addEventListener('mouseout', () => {
+    conteudo1.style.transform = 'rotateY(0deg)';
+    conteudoNovo1.style.transform = 'rotateY(-180deg)';
+  });
+
+
+  const retangulo2 = document.querySelector('.retangulo2');
+  const conteudo2 = document.querySelector('.conteudo2');
+  const conteudoNovo2 = document.querySelector('.conteudo-novo2');
+  
+  retangulo2.addEventListener('mouseover', () => {
+    conteudo2.style.transform = 'rotateY(180deg)';
+    conteudoNovo2.style.transform = 'rotateY(0deg)';
+  });
+  
+  retangulo2.addEventListener('mouseout', () => {
+    conteudo2.style.transform = 'rotateY(0deg)';
+    conteudoNovo2.style.transform = 'rotateY(-180deg)';
+  });
+
+
+
+
+  const retangulo3 = document.querySelector('.retangulo3');
+  const conteudo3 = document.querySelector('.conteudo3');
+  const conteudoNovo3 = document.querySelector('.conteudo-novo3');
+  
+  retangulo3.addEventListener('mouseover', () => {
+    conteudo3.style.transform = 'rotateY(180deg)';
+    conteudoNovo3.style.transform = 'rotateY(0deg)';
+  });
+  
+  retangulo3.addEventListener('mouseout', () => {
+    conteudo3.style.transform = 'rotateY(0deg)';
+    conteudoNovo3.style.transform = 'rotateY(-180deg)';
+  });
+
+  </script>
+
+{% endblock %}

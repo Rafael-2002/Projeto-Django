@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+    {% for blog in blog %}
+        <br><br>
+        <div class="post">
+            <div class="title">{{ blog.titulo }}</div>
+            <div class="author">{{ blog.autor }}</div><br>
+
+            <div class="content">
+                {{ blog.conteudo }}
+                <br><br>
+                {% for comentarios in comentarios %}
+                {% if comentarios.autor == blog.autor %}
+                    {{ comentarios.conteudo }} - {{ comentarios.autor }}
+                {% endif %}
+                {% endfor %}
+                <a class="aBlog" href="{% url 'portfolio:comentarioNovo' %}">+ Novo Comentario</a>
+            </div>
+        </div>
+        <br><br>
+    {% endfor %}
+    <a class="aBlog" href="{% url 'portfolio:artigoNovo' %}">+ Novo Artigo</a>
+
+<style>
+
+    .aBlog{
+    color : white;
+    width:50%
+    }
+
+
+    .post {
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .author {
+      font-size: 14px;
+      color: #777;
+      text-align:center
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      text-align:center
+    }
+
+    .content {
+      line-height: 1.5;
+    }
+  </style>
+
+
+{% endblock %}

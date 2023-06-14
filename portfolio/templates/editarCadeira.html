@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block main %}
+
+<form action=" {% url 'portfolio:editarCadeira' cadeira_id=cadeira_id %} " method="POST"> {% csrf_token %}
+
+    {{form.as_p}}
+    <br><br>
+    <a href="{% url 'portfolio:apagarCadeira' cadeira_id=cadeira_id %}" role="button">Apagar</a>
+    <input type="submit" value = "Adicionar">
+
+</form>
+
+<br><br><br><br>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    form input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #888;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    form a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #888;
+        font-size: 14px;
+    }
+</style>
+
+{% endblock %}
+

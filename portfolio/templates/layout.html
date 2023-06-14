@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" id="day-mode" href="{% static 'css/estilos.css' %}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="container">
+    <nav class="navbar">
+        <a href="{% url 'portfolio:home' %}">Início</a>
+    <div class="dropdown">
+        <a>Sobre mim</a>
+        <div class="dropdown-content">
+            <a href="#licenciatura">Licenciatura</a>
+            <a href="#educacao">Educação</a>
+            <a href="#aptidoes">Aptidões</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#projetos">Projetos</a>
+        </div>
+    </div>
+        <a href="{% url 'portfolio:javascript' %}">JavaScript</a>
+        <a href="{% url 'portfolio:blog' %}">Blog</a>
+        <a id="data-atual"></a>
+        <a> Bem vindo, {{request.user.username}} </a>
+        <a href="{% url 'portfolio:logout_view' %}">Logout</a>
+        <div class="btn"></div>
+</nav>
+
+<header>
+    <p class="ps">O céu é o limite</p>
+</header>
+
+
+
+<main>
+    {% block main %}
+
+    {% endblock %}
+</main>
+
+
+
+<footer>
+
+    <div class="content">
+      <h3>Rafael Silva -a22107578</h3>
+      <p>Universidade Lusófona - 2023</p>
+      <p>Lisboa</p>
+      <ul class="social">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </div>
+    <div class="bottom">
+      <span>Rafael Silva a22107578</span>
+    </div>
+    
+  </footer>
+
+</body>
+</html>
+
+<style>
+  body{
+    background: url("{% static 'images/fundo.jpg' %}") no-repeat center fixed;
+    transition: background .5s;
+  }
+
+  .btn{
+    right: 5%;
+    top: 15%;
+    width: 140px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-radius: 60px;
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  .btn:before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background:#fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    transition: left .5s;
+  }
+  
+  .btn.active:before{
+    left:95px
+  }
+</style>
+
+<script>
+    const btn = document.querySelector('.btn');
+  const container = document.querySelector('.container');
+
+  btn.onclick=function(){
+    this.classList.toggle('active')
+    container.classList.toggle('active')
+  }
+
+</script>

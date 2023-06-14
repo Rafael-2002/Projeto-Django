@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-(t00ugh-v0@k6hk^-)bu7_hkqbb90p+!glxk*xa*)q#r5-w6^p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ProjetoDjango.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
+LOGIN_URL = 'portfolio:login'
 
 # Application definition
 
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'portfolio',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,54 @@
+
+
+{% extends 'layout.html' %}
+
+{% block main %}
+
+    <br><br><br><br>
+    
+    <div class="calc">
+    <div class = "insert">
+        <h1>Calculadora</h1>
+        <input type="text" id="expression" placeholder="Digite uma expressão">
+        <br>
+            <input type="button" class="botao1" value="Calcular" onclick="calculate()">
+            <input type="button" class="botao1" value="Apagar" onclick="clearResult()">
+        <div id="result"></div>
+      </div>
+    </div>
+
+    
+
+    <div class="containerImg">
+        <div class="imagem">
+            {% load static %}
+            <img src="{% static 'images/imagemJS.jpg' %}">
+            <div id="fraseOutput"></div>
+        </div>
+        <div class="legenda">
+            <h2>Digite uma frase inspiradora aqui</h2><br>
+            <form>
+              <input type="text" id="fraseInput" placeholder="Digite sua frase inspiradora aqui"><br><br>
+              <input type="button" class="botao1" value="Enviar" onclick="atualizarFrase()">
+              <input type="button" class="botao1" value="Apagar" onclick="apagarTexto()">
+            </form>
+        </div>
+    </div>
+
+    
+
+    <div class="nome">
+        <h2>Digite o seu nome</h2><br>
+            <form>
+              <input type="text" id="nomeInput" placeholder="Digite o seu nome"><br><br>
+              <input type="button" class="botao1" value="Enviar" onclick="introduzNome()">
+              <input type="button" class="botao1" value="Apagar" onclick="apagarNome()">
+            </form>
+
+            <div id="nomeOutput3"></div>
+    </div>
+
+
+<br><br><br><br>
+    
+{% endblock %}
